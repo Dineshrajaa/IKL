@@ -9,4 +9,8 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <access origin="tel:*" launch-external="yes" />
+    <access origin="mailto:*" launch-external="yes" />
+    <!--Plugins needed-->
+    <gap:plugin name="org.apache.cordova.dialogs" />    
 </widget>

@@ -2,31 +2,39 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
+        <meta name="format-detection" content="telephone=yes" />
         <meta name="msapplication-tap-highlight" content="no" />        
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" /> <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
         <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">        
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css"> <script type="text/javascript" src="js/ikl.js"></script> 
+        <script type="text/javascript" src="res/results.json"></script>     
         <title>Inaindhakaiggal</title>
     </head>
     <body>
-        <div data-role="tabs">
+        <!--<div data-role="tabs">
             <header data-role="header" data-theme="b" data-position="fixed" data-tap-toggle="false">
-            <!--<a href="#search-page" data-role="button" data-icon="search" class="ui-btn-right" data-iconpos="notext">Search</a>-->
+            <!--<a href="#search-page" data-role="button" data-icon="search" class="ui-btn-right" data-iconpos="notext">Search</a>
             <h1>IKL Blood Bank</h1>
             </header>
             <div data-role="navbar">
             <ul>
-                <li><a href="#home-page">Home</a></li>
-                <li><a href="#search-page">Search</a></li>
+                <li><a href="#home-page" id="hbtn">Home</a></li>
+                <li><a href="#search-page" id="sbtn">Search</a></li>
             </ul>
-            </div>
-      <!--  <section data-role="page" id="home-page">
+            </div>-->
+        <div data-role="panel" id="optionpanel" data-position="right" data-display="reveal" data-theme="b">
+             <ul data-role="listview" id="panelcontentlist" data-icon="false">
+                <li data-icon="home"><a href="#home-page">Home</a></li>
+                <li data-icon="search"><a href="#search-page">Search Blood</a></li>
+                <li data-icon="info"><a href="#" id="info-page">About App</a></li>               
+             </ul>
+        </div>
+         <section data-role="page" id="home-page">
             <header data-role="header" data-theme="b" data-position="fixed">
-            <a href="#search-page" data-role="button" data-icon="search" class="ui-btn-right" data-iconpos="notext">Search</a>
+            <a href="#optionpanel" data-role="button" data-icon="bars" class="ui-btn-right" data-iconpos="notext">Panel</a>
             <h1>IKL Blood Bank</h1>
-            </header> -->
-            <article data-role="main" id="home-page">
+            </header> 
+            <article data-role="content" id="home-page">
             <center>
                 <label>Blood Group Details</label>
             </center>
@@ -67,16 +75,17 @@
             </tbody>
             </table>
             </article>
-          <!--  <footer data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false">
+            <footer data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false">
                 <h1>&copy Reserved By Inaindhakaiggal</h1>
             </footer>
-        </section>
-        <section data-role="page" id="search-page">
+            </section>
+
+            <section id="search-page" data-role="page"> 
             <header data-role="header" data-theme="b" data-position="fixed">
-                <a href="#" data-role="button" data-icon="carat-l" data-iconpos="notext" data-rel="back">Back</a>
-                <h1>Search Blood</h1>
-            </header> -->
-            <article data-role="main" id="search-page">
+            <a href="#optionpanel" data-role="button" data-icon="bars" class="ui-btn-right" data-iconpos="notext">Panel</a>
+            <h1>IKL Blood Bank</h1>
+            </header>         
+            <article data-role="content" >
                 <label for="rblood">Needed Blood Group</label>
                 <select id="rblood">
                     <option value="ap">A+</option>
@@ -86,15 +95,31 @@
                     <option value="op">O+</option>
                     <option value="on">O-</option>
                 </select>
+                <input type="button" id="searchbtn" value="Search" data-icon="search"/>
+               <!-- <label for="rplace">Needed Place</label>
+                <select id="rplace">
+                    <option value="kmch">KMCH</option>
+                    <option value="ganga">Ganga</option>
+                    <option value="gh">GH</option>
+                </select> -->
             </article>
-          <!--  <footer data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false">
+            <footer data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false">
                 <h1>&copy Reserved By Inaindhakaiggal</h1>
             </footer>
-        </section>-->
-        <footer data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false">
-                <h1>&copy Reserved By Inaindhakaiggal</h1>
-            </footer>
-        </div>
+        </section>
+
+        <section id="searchresult-page" data-role="page">
+            <header data-role="header" data-theme="b" data-position="fixed">
+                <a href="#" data-role="button" data-icon="carat-l" data-iconpos="notext" data-rel="back">Back</a>
+                    <h1>Search Results</h1>
+                <a href="#optionpanel" data-role="button" data-icon="bars" class="ui-btn-right" data-iconpos="notext">Panel</a>
+            </header>
+            <article data-role="content">
+                <div data-role="collapsibleset" id="searchresultslist"></div>
+            </article>
+        </section>
+        
+        
         <script type="text/javascript" src="cordova.js"></script>        
     </body>
 </html>
