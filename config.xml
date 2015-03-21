@@ -7,10 +7,63 @@
     <author email="dineshrajaa.93@gmail.com" href="http://cordova.io">
         Dinesh Raja
     </author>
-    <content src="index.html" />
+    
     <access origin="*" />
     <access origin="tel:*" launch-external="yes" />
     <access origin="mailto:*" launch-external="yes" />
+    <preference name="phonegap-version"   value="3.6.3" />
+    <preference name="DisallowOverscroll" value="true"/>
+    <preference name="orientation"        value="portrait" />
+    <preference name="target-device"      value="universal" />
+    <preference name="fullscreen"         value="false" />
+    <preference name="webviewbounce"      value="false" />
+    <preference name="prerendered-icon"   value="false" />
+    <preference name="stay-in-webview"    value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types"  value="true" /> 
+    <preference name="exit-on-suspend"    value="false" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="auto-hide-splash-screen"    value="true" />
+    <preference name="android-installLocation"    value="auto" />
+    <preference name="SplashScreen" value="splash.png" />
+    <preference name="SplashScreenDelay" value="10000" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <content src="index.html" />
+
+    <!--ICON FOR ios-->
+    <icon src="res/icon/ios/icon-60@3x.png" gap:platform="ios" width="180" height="180" />
+    <icon src="res/icon/ios/icon-60.png" gap:platform="ios" width="60" height="60" />
+    <icon src="res/icon/ios/icon-60@2x.png" gap:platform="ios" width="120" height="120" />
+    <icon src="res/icon/ios/icon-76.png" gap:platform="ios" width="76" height="76" />
+    <icon src="res/icon/ios/icon-76@2x.png" gap:platform="ios" width="152" height="152" />
+    <icon src="res/icon/ios/icon-40.png" gap:platform="ios" width="40" height="40" />
+    <icon src="res/icon/ios/icon-40@2x.png" gap:platform="ios" width="80" height="80" />
+
+    <!--ICONS FOR Android-->
+    <icon src="res/icon/android/ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
+    <icon src="res/icon/android/mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
+    <icon src="res/icon/android/hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
+    <icon src="res/icon/android/xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
+    <icon src="res/icon/android/xxhdpi.png" gap:platform="android" gap:qualifier="xxhdpi" />
+    <icon src="res/icon/android/fr-xxhdpi.png" gap:platform="android" gap:qualifier="fr-xxhdpi" />
+
+    <platform name="android">
+        <gap:splash src="res/screen/android/hdpi.png" gap:platform="android" density="land-hdpi" />
+        <gap:splash src="res/screen/android/landscape-xxhdpi.png" gap:platform="android" density="land-hdpi" />
+        <gap:splash src="res/screen/android/ldpi.png" gap:platform="android" density="land-ldpi" />
+        <gap:splash src="res/screen/android/mdpi.png" gap:platform="android" density="land-mdpi" />
+        <gap:splash src="res/screen/android/portrait-xxhdpi.png" gap:platform="android" density="port-xhdpi" />    
+        
+        
+     </platform>
+
+     <gap:splash src="res/screen/ios/Default.png" gap:platform="ios" width="320" height="480" />
+     <gap:splash src="res/screen/ios/Default@2x.png" gap:platform="ios" width="640" height="960" />
+     <gap:splash src="res/screen/ios/Default-568h@2x.png" gap:platform="ios" width="640" height="1136" />
+     <gap:splash src="res/screen/ios/Default-Portrait.png" gap:platform="ios" width="768" height="1024" />
+     <gap:splash src="res/screen/ios/Default-Portrait@2x.png" gap:platform="ios" width="1536" height="2048" />
+
     <!--Plugins needed-->
-    <gap:plugin name="org.apache.cordova.dialogs" />    
+    <gap:plugin name="org.apache.cordova.dialogs" />
+    <gap:plugin name="org.apache.cordova.splashscreen" />    
 </widget>

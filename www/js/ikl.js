@@ -1,17 +1,9 @@
 $(document).ready(function(){	
 $("[data-role=panel]").panel().enhanceWithin();//Initialize the External panel
 
-/**Testing
-//alert(jsonObject.start.count);
-var datatobestored=JSON.stringify(jsonObject);
-localStorage.setItem('sample',datatobestored);
-alert("Stored data");
-/*var op=JSON.parse(localStorage.getItem('sample'));
-	$.each(op,function(index,value){
-		alert(value.name);
-	});
-**/
+
 /**Generic Methods**/
+
 function showLoader(content,visibility){
 	//This is used for showing Loader
 	$.mobile.loading('show',{text:content,textVisible:visibility});
@@ -58,7 +50,10 @@ $("#info-page").tap(function(){
 	var aboutapp="IKL"+"\n"+"Version:0.0.1"+"\n"+"Developed by"+"\n"+"Dinesh Raja";
 	customAlert(aboutapp,"About IKL");
 });
-/*$(document).addEventListener('deviceready',function(){
-	
-},false);*/
+
+
+document.addEventListener('deviceready',function(){
+	StatusBar.overlaysWebView(false);
+},false);
+
 });

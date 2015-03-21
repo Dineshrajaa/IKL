@@ -7,7 +7,8 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" /> <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
         <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css"> <script type="text/javascript" src="js/ikl.js"></script> 
-        <script type="text/javascript" src="res/results.json"></script>     
+        <script type="text/javascript" src="res/results.json"></script>  
+        <link rel="stylesheet" type="text/css" href="css/ikl.css">   
         <title>Inaindhakaiggal</title>
     </head>
     <body>
@@ -22,13 +23,17 @@
                 <li><a href="#search-page" id="sbtn">Search</a></li>
             </ul>
             </div>-->
+                        <!--General External Panel-->
         <div data-role="panel" id="optionpanel" data-position="right" data-display="reveal" data-theme="b">
              <ul data-role="listview" id="panelcontentlist" data-icon="false">
                 <li data-icon="home"><a href="#home-page">Home</a></li>
                 <li data-icon="search"><a href="#search-page">Search Blood</a></li>
-                <li data-icon="info"><a href="#" id="info-page">About App</a></li>               
+                <!--<li data-icon="forward"><a href="#share-page">Share it</a></li>-->
+                <li data-icon="info"><a href="#" id="info-page">About App</a></li>
              </ul>
         </div>
+
+                        <!--Home/Landing Page-->
          <section data-role="page" id="home-page">
             <header data-role="header" data-theme="b" data-position="fixed">
             <a href="#optionpanel" data-role="button" data-icon="bars" class="ui-btn-right" data-iconpos="notext">Panel</a>
@@ -36,50 +41,61 @@
             </header> 
             <article data-role="content" id="home-page">
             <center>
-                <label>Blood Group Details</label>
+                <h2>Welcome To IKL</h2>           
+           
+            <a href="#donor-advice-page" data-transition="slidedown"><img src="ikl.png" id="logo" width="250px" height="250px" /></a>
             </center>
-            <table data-role="table" data-mode="columntoggle" id="bdrtable" data-column-btn-text="Table Fields">
-            <thead>
-            <tr>
-                <th data-priority="5">S.No</th>
-                <th>Blood Group</th>
-                <th>Can Donate To</th>
-                <th>Can Receive From</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>1</th>
-                    <td>O</td>
-                    <td>O,A,B,AB</td>
-                    <td>O</td>
-                </tr>
-                <tr>
-                    <th>2</th>
-                    <td>A</td>
-                    <td>A,AB</td>
-                    <td>O,A</td>
-                </tr>
-                <tr>
-                    <th>3</th>
-                    <td>B</td>
-                    <td>B,AB</td>
-                    <td>O,B</td>
-                </tr>
-                <tr>
-                    <th>4</th>
-                    <td>AB</td>
-                    <td>AB</td>
-                    <td>O,AB</td>
-                </tr>
-            </tbody>
-            </table>
             </article>
+            
             <footer data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false">
                 <h1>&copy Reserved By Inaindhakaiggal</h1>
             </footer>
             </section>
 
+            <section data-role="page" id="donor-advice-page">
+                <header data-role="header" data-theme="b" data-position="fixed">
+                <a href="#" data-role="button" data-icon="carat-l" data-iconpos="notext" data-rel="back">Back</a>
+                    <h1>For Donors</h1>
+                <a href="#optionpanel" data-role="button" data-icon="bars" class="ui-btn-right" data-iconpos="notext">Panel</a>
+                </header>
+                <article data-role="content">
+                  <a href="#afraid" data-rel="popup" data-role="button">How many people donate blood?</a>
+                    <div data-role="popup" id="afraid" class="ui-content">
+                        <p>A lot of people are scared the first time, but after you make one donation, youll wonder why you ever hesitated. Theres really nothing to it!As Haley O"Brien, one of the first 16 year-olds to donate blood in Pennsylvania stated, "Do it, get it done, it doesnt hurt!"</p>
+                    </div>
+                    <a href="#counts" data-rel="popup" data-role="button">I am afraid</a>
+                    <div data-role="popup" id="counts" class="ui-content">
+                        <p>Only 5% of the population donates blood.If only 10% of the population would donate, it would very possibly eliminate all blood shortages.</p>
+                    </div>
+                    <a href="#needed" data-rel="popup" data-role="button">Do you need my blood?</a>
+                    <div data-role="popup" id="needed" class="ui-content">
+                        <p>We need regular donations of ALL blood types. The rarest blood is the type which is not available when its needed. </p>
+                    </div>
+                    <a href="#doubt" data-rel="popup" data-role="button">Do I have enough blood to spare?</a>
+                    <div data-role="popup" id="doubt" class="ui-content">
+                        <p>If you are healthy and weigh at least 110 pounds, you have 10-12 pints in your body and can easily spare one pint. You should be able to donate regularly every eight weeks without any problem.Â  The fluids in your body are completely replaced 24 hours after donation.  </p>
+                    </div>
+                    <a href="#aids" data-rel="popup" data-role="button">Possiblities for AIDS?</a>
+                    <div data-role="popup" id="aids" class="ui-content">
+                        <p>There is no way you can be exposed to the AIDS virus by donating blood. All needles and equipment are pre-packaged, sterile and disposable. The blood bank is under strict regulation and nothing is ever re-used on another donor.  </p>
+                    </div>
+                    <a href="#iron" data-rel="popup" data-role="button">I have low Iron content in Blood</a>
+                    <div data-role="popup" id="iron" class="ui-content">
+                        <p>A sample of your blood is checked before every donation. If your iron is low, we will ask you to donate at a later date.Most of the time, low iron is only temporary. We will provide you with an "iron rich foods list" which will help to boost your iron to strong levels.</p>
+                    </div>
+                    <a href="#hurts" data-rel="popup" data-role="button">Will that hurt me?</a>
+                    <div data-role="popup" id="hurts" class="ui-content">
+                        <p>Most donors say they barely felt anything and they describe blood donation as a slight pinch on the inside of your arm. Eating a good meal and hydrating yourself with caffeine-free drinks helps to make sure your donation experience is a positive one.</p>
+                    </div>
+                    <a href="#tired" data-rel="popup" data-role="button">Would I feel tired?</a>
+                    <div data-role="popup" id="tired" class="ui-content">
+                        <p>Your body will begin to replace the blood you donated immediately. After some cookies and juice, most people resume their regular activities after donating. </p>
+                    </div>
+
+                </article>
+            </section>
+
+                        <!--Search Page-->
             <section id="search-page" data-role="page"> 
             <header data-role="header" data-theme="b" data-position="fixed">
             <a href="#optionpanel" data-role="button" data-icon="bars" class="ui-btn-right" data-iconpos="notext">Panel</a>
@@ -95,19 +111,14 @@
                     <option value="op">O+</option>
                     <option value="on">O-</option>
                 </select>
-                <input type="button" id="searchbtn" value="Search" data-icon="search"/>
-               <!-- <label for="rplace">Needed Place</label>
-                <select id="rplace">
-                    <option value="kmch">KMCH</option>
-                    <option value="ganga">Ganga</option>
-                    <option value="gh">GH</option>
-                </select> -->
+                <input type="button" id="searchbtn" value="Search" data-icon="search"/>              
             </article>
             <footer data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false">
                 <h1>&copy Reserved By Inaindhakaiggal</h1>
             </footer>
         </section>
 
+                        <!--Search Results Page-->
         <section id="searchresult-page" data-role="page">
             <header data-role="header" data-theme="b" data-position="fixed">
                 <a href="#" data-role="button" data-icon="carat-l" data-iconpos="notext" data-rel="back">Back</a>
@@ -117,6 +128,15 @@
             <article data-role="content">
                 <div data-role="collapsibleset" id="searchresultslist"></div>
             </article>
+        </section>
+
+                        <!--Share Page-->
+        <section id="share-page" data-role="page">
+            <header data-role="header" data-theme="b" data-position="fixed">
+                <!--<a href="#" data-role="button" data-icon="carat-l" data-iconpos="notext" data-rel="back">Back</a>-->
+                    <h1>Search Results</h1>
+                <a href="#optionpanel" data-role="button" data-icon="bars" class="ui-btn-right" data-iconpos="notext">Panel</a>
+            </header>
         </section>
         
         
