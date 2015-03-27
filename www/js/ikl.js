@@ -30,6 +30,25 @@ function groupNameFinder(bg){
 		}
 		return groupname;
 }
+
+function checkConnection(){
+    var networkState = navigator.connection.type;
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.NONE]     = 'No network connection';   
+	if(states[networkState]=='No network connection'){
+	  return false;
+	}else{
+	  return true;
+	}
+}
+
+
 function showLoader(content,visibility){
 	//This is used for showing Loader
 
@@ -51,15 +70,13 @@ if (localStorage.getItem('iklmemberlist')===null) setLocalData('res/results.json
 function setLocalData(jsondata){
 	//Method to Read the local json file and store it in Local Storage(Executed only during the installation)
 
-console.log(jsondata);
 $.getJSON(jsonurl,function(data){
 	showLoader("Setting up Data","true");	
 	var localResult=JSON.stringify(data);
 	localStorage.setItem('iklmemberlist',localResult);
 	$.mobile.loading( "hide" );		
 });
-console.log("Synched Data");
-//$(":mobile-pagecontainer").pagecontainer("change","#memberslist-page");
+
 }
 /**End of Initializing Methods**/
 
@@ -112,9 +129,10 @@ function listMembers(){
 
 /**Synchronizing Method**/
 	//Method to Synchronize data from server
-	function sync(){		
-		setLocalData('https://gist.githubusercontent.com/Dineshrajaa/2ea3aa008436522da9e6/raw/4c9cf738c3928513956369eaf048642c6b0d37d6/IKL');
-
+	function sync(){
+		if (checkConnection())
+			setLocalData('https://gist.githubusercontent.com/Dineshrajaa/2ea3aa008436522da9e6/raw/4c9cf738c3928513956369eaf048642c6b0d37d6/IKL');
+		else customAlert('Connect to Internet to Sync data','No Internet');
 	}
 /**End of Synchronizing Method**/
 
