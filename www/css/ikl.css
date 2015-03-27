@@ -1,0 +1,20 @@
+.bg{
+	background: url(bg.jpg) no-repeat center top #e0eaef !important;
+	background-size: cover !important;
+	background-color: #43589B !important;
+}
+
+.icons-custom {  
+ background-color: #43589B !important; 
+ border: solid #43589B !important;
+}
+
+body {
+    background: url(bg.jpg) !important;
+    background-attachment:fixed;
+	background-size:cover;
+}
+
+.ui-page, .ui-content, .ui-btn {
+	background: transparent;
+}

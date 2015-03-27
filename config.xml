@@ -67,5 +67,6 @@
     <!--Plugins needed-->
     <gap:plugin name="org.apache.cordova.dialogs" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
-    <gap:plugin name="org.apache.cordova.statusbar"  />    
+    <gap:plugin name="org.apache.cordova.statusbar"  />
+    <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />    
 </widget>
