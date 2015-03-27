@@ -70,7 +70,7 @@ if (localStorage.getItem('iklmemberlist')===null) setLocalData('res/results.json
 function setLocalData(jsondata){
 	//Method to Read the local json file and store it in Local Storage(Executed only during the installation)
 
-$.getJSON(jsonurl,function(data){
+$.getJSON(jsondata,function(data){
 	showLoader("Setting up Data","true");	
 	var localResult=JSON.stringify(data);
 	localStorage.setItem('iklmemberlist',localResult);
