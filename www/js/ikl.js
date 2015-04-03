@@ -74,7 +74,8 @@ $.getJSON(jsondata,function(data){
 	showLoader("Setting up Data","true");	
 	var localResult=JSON.stringify(data);
 	localStorage.setItem('iklmemberlist',localResult);
-	$.mobile.loading( "hide" );		
+	$.mobile.loading( "hide" );
+	customAlert("Updated Donors Information","Sync Success");		
 });
 
 }

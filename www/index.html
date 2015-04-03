@@ -22,10 +22,13 @@
                 <li data-icon="action"><a href="#share-page">Ask Friends</a></li>
                 <li data-icon="bullets"><a href="#memberslist-page">Members List</a></li>
                 <li data-icon="recycle"><a href="#" id="syncbtn">Sync Data</a></li>
+                <li data-icon="phone"><a href="#contact-page">Contact Us</a></li>
                 <li data-icon="info"><a href="#" id="info-page">About App</a></li>
              </ul>
-             <marquee direction="up">Thanks for being a part of Inaindhakaiggal</marquee>
+             <marquee direction="up"><p>Thanks for being a part of Inaindhakaiggal</p></marquee>
         </div>
+
+        
 
                         <!--Home/Landing Page-->
          <section data-role="page" id="home-page" >
@@ -46,6 +49,22 @@
             </footer>
             </section>
 
+                        <!--Contact Us Page-->
+            <section  data-role="page" id="contact-page">
+            <header data-role="header" data-theme="b" data-position="fixed">
+                <a href="#" data-role="button" data-icon="carat-l" data-iconpos="notext" data-rel="back">Back</a>
+                    <h1>Contact Info</h1>
+                <a href="#optionpanel" data-role="button" data-icon="bars" class="ui-btn-right" data-iconpos="notext">Panel</a>
+            </header>
+            <article data-role="content">
+                <center>
+                    <h1>Sample</h1>
+                    <p></p>
+                </center>
+            </article>
+            </section>
+
+                            <!--Donor's Advice Page-->
             <section data-role="page" id="donor-advice-page" >
                 <header data-role="header" data-theme="b" data-position="fixed">
                 <a href="#" data-role="button" data-icon="carat-l" data-iconpos="notext" data-rel="back">Back</a>
@@ -122,7 +141,7 @@
                 <div data-role="collapsibleset" id="searchresultslist"></div>
             </article>
         </section>
-
+                            <!--Members List Page-->
         <section id="memberslist-page" data-role="page">
             <header data-role="header" data-theme="b" data-position="fixed">
                 <a href="#" data-role="button" data-icon="carat-l" data-iconpos="notext" data-rel="back">Back</a>
@@ -158,6 +177,7 @@
                 <label for="clocation">Location</label>
                 <input id="clocation" type="text" />
                 <input type="button" value="Share" id="sharebtn">
+                <button onclick="window.plugins.socialsharing.shareViaSMS('My cool message', '0612345678,0687654321', function(msg) {console.log('ok: ' + msg)}, function(msg) {alert('error: ' + msg)})">share via SMS</button>
             </article>
         </section>
         
