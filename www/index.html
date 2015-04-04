@@ -74,7 +74,7 @@
                 <article data-role="content">
                   
                     <div data-role="collapsibleset">
-                        <div data-role="collapsible">
+                        <!-- div data-role="collapsible">
                             <h3>How many people donate blood?</h3>
                             <p>Only 5% of the population donates blood.If only 10% of the population would donate, it would very possibly eliminate all blood shortages.</p>
                         </div>
@@ -101,7 +101,70 @@
                         <div data-role="collapsible">
                             <h3>Would I feel tired?</h3>
                             <p>Your body will begin to replace the blood you donated immediately. After some cookies and juice, most people resume their regular activities after donating.</p>
+                        </div> -->
+                        <div data-role="collapsible">
+                            <h3>Age Limit</h3>
+                            <p>18 -60 years age</p>
+                        </div> 
+                        <div data-role="collapsible">
+                            <h3>Weight</h3>
+                            <p>50Kg</p>
+                        </div> 
+                        <div data-role="collapsible">
+                            <h3>Hemoglobin Level</h3>
+                            <p>12.5%</p>
+                        </div> 
+                        <div data-role="collapsible">
+                            <h3>Time Interval between each donations</h3>
+                            <p>Can donate 3 months once</p>
+                        </div> 
+                        <div data-role="collapsible">
+                            <h3>Body Temperature</h3>
+                            <p>37.5 degree Celsius</p>
+                        </div> 
+                        <div data-role="collapsible">
+                            <h3>Affected by Viral Fever</h3>
+                            <p>If you are affected by malaria,typhoid before 3 months you are not eligible</p>
                         </div>
+                        <div data-role="collapsible">
+                            <h3>Alcohol Consumed</h3>
+                            <p>If donor consumed alcohol within the last 24 hours,not eligible</p>
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>Immunized</h3>
+                            <p>If donor undergone any immunization within the past one month,not eligible</p>
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>Fever/Cold</h3>
+                            <p>If you are sick with cold/fever in past 1 week,not eligible</p>
+                        </div> 
+                        <div data-role="collapsible">
+                            <h3>Intaking Medicine</h3>
+                            <p>Under treatment with   antibiotics or any other medicine, not eligible</p>
+                        </div> 
+                        <div data-role="collapsible">
+                            <h3>Keep it in mind</h3>
+                            <p>
+                            <ul>
+                                <li>Avoid donating blood in empty stomach</li>
+                                <li>Eat three hours before you donate blood</li>
+                                <li>Avoid donating blood for 6 months if you had any major surgery</li>
+                            </ul>
+                            </p>
+                        </div> 
+                        <div data-role="collapsible">
+                            <h3>After Donation</h3>
+                            <p>
+                                <ul>
+                                    <li>Have some rest 5 to 20 minutes after donation</li>
+                                    <li>Do not drive after donation of blood</li>
+                                    <li>Have some snacks and juice with high sugar content which will help to rejuvenate the blood sugar back  up</li>
+                                    <li>Have a good meal with high protein content such as Chicken, Fish etc</li>
+                                    <li>Do not consume Alcohol for 8 hours after donation of blood</li>
+                                    <li>Avoid going for a heavy body works such as gym, dancing, running etc at least for next one day</li>
+                                </ul>
+                            </p>
+                        </div> 
                     </div>
 
                 </article>
@@ -117,11 +180,22 @@
                 <label for="rblood">Needed Blood Group</label>
                 <select id="rblood">
                     <option value="ap">A+</option>
-                    <option value="an">A-</option>
+                    <option value="aop">A1+</option>
+                    <option value="atp">A2+</option>
                     <option value="bp">B+</option>
-                    <option value="bn">B-</option>
+                    <option value="aobp">A1B+</option>
+                    <option value="atbp">A2B+</option>
+                    <option value="abp">AB+</option>
                     <option value="op">O+</option>
+                    <option value="an">A-</option>
+                    <option value="aon">A1-</option>
+                    <option value="atn">A2-</option>
+                    <option value="bn">B-</option>
+                    <option value="aobn">A1B-</option>
+                    <option value="atbn">A2B-</option>
+                    <option value="abn">AB-</option>
                     <option value="on">O-</option>
+                    <option value="hh">Bombay Blood Group</option>
                 </select>
                 <input type="button" id="searchbtn" value="Search" data-icon="search"/>              
             </article>
@@ -138,6 +212,9 @@
                 <a href="#optionpanel" data-role="button" data-icon="bars" class="ui-btn-right" data-iconpos="notext">Panel</a>
             </header>
             <article data-role="content">
+                <center>
+                    <h3 id="resultsetcount"></h3>
+                </center>
                 <div data-role="collapsibleset" id="searchresultslist"></div>
             </article>
         </section>
@@ -168,16 +245,27 @@
                 <input type="tel" id="cnum" />
                 <select id="cblood">
                     <option value="ap">A+</option>
-                    <option value="an">A-</option>
+                    <option value="aop">A1+</option>
+                    <option value="atp">A2+</option>
                     <option value="bp">B+</option>
-                    <option value="bn">B-</option>
+                    <option value="aobp">A1B+</option>
+                    <option value="atbp">A2B+</option>
+                    <option value="abp">AB+</option>
                     <option value="op">O+</option>
+                    <option value="an">A-</option>
+                    <option value="aon">A1-</option>
+                    <option value="atn">A2-</option>
+                    <option value="bn">B-</option>
+                    <option value="aobn">A1B-</option>
+                    <option value="atbn">A2B-</option>
+                    <option value="abn">AB-</option>
                     <option value="on">O-</option>
+                    <option value="hh">Bombay Blood Group</option>
                 </select>
                 <label for="clocation">Location</label>
                 <input id="clocation" type="text" />
                 <input type="button" value="Share" id="sharebtn">
-                <button onclick="window.plugins.socialsharing.shareViaSMS('My cool message', '0612345678,0687654321', function(msg) {console.log('ok: ' + msg)}, function(msg) {alert('error: ' + msg)})">share via SMS</button>
+                
             </article>
         </section>
         

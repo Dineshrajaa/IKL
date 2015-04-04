@@ -6,27 +6,61 @@ $("[data-role=panel]").panel().enhanceWithin();//Initialize the External panel
 function groupNameFinder(bg){
 	var groupname;
 	switch(bg){
+
 			case 'ap':
 			groupname='A+';
 			break;
-			case 'an':
-			groupname='A-';
+			case 'aop':
+			groupname='A1+';
+			break;
+			case 'atp':
+			groupname='A2+';
 			break;
 			case 'bp':
 			groupname='B+';
 			break;
-			case 'bn':
-			groupname='B-';
+			case 'aobp':
+			groupname='A1B+';
+			break;
+			case 'atbp':
+			groupname='A2B+';
+			break;
+			case 'abp':
+			groupname='AB+';
 			break;
 			case 'op':
 			groupname='O+';
 			break;
+			case 'an':
+			groupname='A-';
+			break;
+			case 'aon':
+			groupname='A1-';
+			break;
+			case 'atn':
+			groupname='A2-';
+			break;
+			case 'bn':
+			groupname='B-';
+			break;
+			case 'aobn':
+			groupname='A1B-';
+			break;
+			case 'atb-':
+			groupname='A2B+';
+			break;
+			case 'abn':
+			groupname='AB-';
+			break;
 			case 'on':
 			groupname='O-';
 			break;
-			default:
-			groupname="Unknown";
+			case 'hh':
+			groupname='BombayBlood';
 			break;
+			default:
+			groupname="Unknown Blood Group";
+			break;			
 		}
 		return groupname;
 }
@@ -85,17 +119,25 @@ $.getJSON(jsondata,function(data){
 function searchDonor(bloodid){
 	//Method to search Donors of required Blood group
 	var resultcontent;
+	var resultcounter=0;
 	$("#searchresultslist").html(" ");
 	$(":mobile-pagecontainer").pagecontainer("change","#searchresult-page");
 	showLoader("Loading Search Results","true");	
 	var op=JSON.parse(localStorage.getItem('iklmemberlist'));
 	$.each(op,function(index,value){
 		if(value.bloodgrp==bloodid) {
+			resultcounter++;
 			resultcontent="<div data-role='collapsible'><h4>"+value.name+"</h4><p><a href='tel:"+value.mobile+"'rel='external'>"+value.mobile+"</a></p></div>";
 			$( "#searchresultslist" ).append(resultcontent).collapsibleset( "refresh" );
 		}
+
 	});
+	$("#resultsetcount").html("Found <b>"+ resultcounter+"</b>  "+ groupNameFinder(bloodid)+" details");
 	$.mobile.loading( "hide" );
+	if (resultcounter==0){
+		customAlert("Now you can Share it in Social Medias","No Results Found");
+		$(":mobile-pagecontainer").pagecontainer("change","#share-page");
+	}
 }
 /**End of Donor Search Methods**/
 
