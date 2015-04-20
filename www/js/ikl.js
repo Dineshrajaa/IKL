@@ -1,7 +1,6 @@
 $(document).ready(function(){	
 $("[data-role=panel]").panel().enhanceWithin();//Initialize the External panel
 
-
 /**Generic Methods**/
 function groupNameFinder(bg){
 	var groupname;
@@ -46,8 +45,8 @@ function groupNameFinder(bg){
 			case 'aobn':
 			groupname='A1B-';
 			break;
-			case 'atb-':
-			groupname='A2B+';
+			case 'atbn':
+			groupname='A2B-';
 			break;
 			case 'abn':
 			groupname='AB-';
@@ -95,6 +94,8 @@ function customAlert(msg,title){
   //This is a common template for generating native looking alerts
   navigator.notification.alert(msg,false,title);
 }
+
+
 
 /**End of Generic Methods**/
 
@@ -177,9 +178,12 @@ function listMembers(){
 			setLocalData('https://gist.githubusercontent.com/Dineshrajaa/2ea3aa008436522da9e6/raw/4c9cf738c3928513956369eaf048642c6b0d37d6/IKL');
 		else customAlert('Connect to Internet to Sync data','No Internet');
 	}
+
+	
 /**End of Synchronizing Method**/
 
 /**Function Calls**/
+
 
 $("#searchbtn").tap(function(){	
 	searchDonor($("#rblood :selected").val());
@@ -205,3 +209,38 @@ document.addEventListener('deviceready',function(){
 },false);
 
 });
+
+
+
+/**Testing**/
+
+/*
+function dbtInitialize(){
+		if (window.openDatabase) {
+			dbName.transaction(function(tx){
+				tx.executeSql("create table if not exists samtable(samcontent text)");
+				});
+		}
+		else{
+			alert("Sorry You can't Save data");
+		}
+	}
+	
+var dbName=window.openDatabase("SVTDB",1.0,"SVTDB",5242880);
+dbtInitialize();
+$("#samync").tap(trialSync);
+function trialSync(){
+		$.getJSON('res/results.json',function(data){
+	showLoader("Setting up Data","true");	
+	var localResult=JSON.stringify(data);
+	dbName.transaction(function(tx){
+		tx.executeSql("insert into samtable(samcontent) values(?)",[localResult]);
+	});
+	// localStorage.setItem('iklmemberlist',localResult);
+	// $.mobile.loading( "hide" );
+	customAlert("Updated Donors Information","Sync Success");		
+});
+	}*/
+
+
+//Updated 16 details
