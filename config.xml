@@ -1,17 +1,31 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.dinesh.ikl" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.dinesh.ikl" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>IKL</name>
     <description>
         Inaindhakaiggal Blood Donors Management app.
     </description>
-    <author email="dineshrajaa.93@gmail.com" href="http://cordova.io">
+    <author email="dineshrajaa.93@gmail.com" href="http://www.inaindhakaiggal.org">
         Dinesh Raja
     </author>
-    
+    <plugin name="cordova-plugin-whitelist" version="1" />
     <access origin="*" />
-    <access origin="tel:*" launch-external="yes" />
-    <access origin="mailto:*" launch-external="yes" />
-    <preference name="phonegap-version"   value="3.6.3" />
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <!-- <access origin="tel:*" launch-external="yes" />
+    <access origin="mailto:*" launch-external="yes" /> -->
+    <preference name="phonegap-version"   value="3.7" />
     <preference name="DisallowOverscroll" value="true"/>
     <preference name="orientation"        value="portrait" />
     <preference name="target-device"      value="universal" />
@@ -28,9 +42,8 @@
     <preference name="SplashScreen" value="splash.png" />
     <preference name="SplashScreenDelay" value="5000" />
     <preference name="StatusBarOverlaysWebView" value="false" />
-    <content src="index.html" />
-    <splash src="splash.png" density="land-hdpi"/>
-    <gap:splash src="splash.png" />
+    
+    
     <!--ICON FOR ios-->
     <icon src="res/icon/ios/icon-60@3x.png" gap:platform="ios" width="180" height="180" />
     <icon src="res/icon/ios/icon-60.png" gap:platform="ios" width="60" height="60" />
@@ -48,7 +61,7 @@
     <icon src="res/icon/android/xxhdpi.png" gap:platform="android" gap:qualifier="xxhdpi" />
     <icon src="res/icon/android/fr-xxhdpi.png" gap:platform="android" gap:qualifier="fr-xxhdpi" />
 
-    <platform name="android">
+    <!-- <platform name="android">
         <gap:splash src="res/screen/android/hdpi.png" gap:platform="android" density="land-hdpi" />
         <gap:splash src="res/screen/android/landscape-xxhdpi.png" gap:platform="android" density="land-hdpi" />
         <gap:splash src="res/screen/android/ldpi.png" gap:platform="android" density="land-ldpi" />
@@ -62,7 +75,7 @@
      <gap:splash src="res/screen/ios/Default@2x.png" gap:platform="ios" width="640" height="960" />
      <gap:splash src="res/screen/ios/Default-568h@2x.png" gap:platform="ios" width="640" height="1136" />
      <gap:splash src="res/screen/ios/Default-Portrait.png" gap:platform="ios" width="768" height="1024" />
-     <gap:splash src="res/screen/ios/Default-Portrait@2x.png" gap:platform="ios" width="1536" height="2048" />
+     <gap:splash src="res/screen/ios/Default-Portrait@2x.png" gap:platform="ios" width="1536" height="2048" /> -->
 
     <!--Plugins needed-->
     <gap:plugin name="org.apache.cordova.dialogs" />

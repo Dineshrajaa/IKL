@@ -1,6 +1,6 @@
 $(document).ready(function(){	
 $("[data-role=panel]").panel().enhanceWithin();//Initialize the External panel
-
+$( "#popup-outside-page" ).enhanceWithin().popup();//Initialize External Popup
 /**Generic Methods**/
 function groupNameFinder(bg){
 	var groupname;
@@ -99,7 +99,7 @@ function customAlert(msg,title){
 
 /**End of Generic Methods**/
 
-if (localStorage.getItem('iklmemberlist')===null) setLocalData('res/results.json');//Checks whether local file data already exists or not
+if (localStorage.getItem('iklmemberlist')===null || undefined) setLocalData('res/results.json');//Checks whether local file data already exists or not
 
 /**Initializing Methods(Only runned during Installation)**/
 function setLocalData(jsondata){
@@ -128,17 +128,57 @@ function searchDonor(bloodid){
 	$.each(op,function(index,value){
 		if(value.bloodgrp==bloodid) {
 			resultcounter++;
-			resultcontent="<div data-role='collapsible'><h4>"+value.name+"</h4><p><a href='tel:"+value.mobile+"'rel='external'>"+value.mobile+"</a></p></div>";
-			$( "#searchresultslist" ).append(resultcontent).collapsibleset( "refresh" );
+			resultcontent="<li>\
+			<div class='ui-grid-b'>\
+			<div class='ui-block-a' width='94%'>\
+				<p><b>"+value.name+"</b></p>\
+			</div>\
+			<div class='ui-block-b' width='3%'>\
+				<a href='tel:"+value.mobile+"' data-theme='b' data-role='button' data-icon='phone' data-iconpos='notext'></a>\
+			</div>\
+			<div class='ui-block-c' width='3%'>\
+				<a href='#' data-name='"+value.name+"' data-mobile='"+value.mobile+"' data-theme='b' data-role='button' data-icon='none' data-iconpos='notext' class='mark'></a>\
+			</div>\
+			</div>\
+			</li>";
+			//resultcontent="<li><p><b>"+value.name+"</b></p><a href='tel:"+value.mobile+"' data-role='button' data-icon='phone' data-iconpos='notext' class='split-button-custom'></a></li>";
+			//resultcontent="<li><table><tbody><tr><td><p><b>"+value.name+"</b></p></td><td><b>"+value.mobile+"</b></td><td><a href='tel:"+value.mobile+"' data-role='button' data-icon='phone' data-iconpos='notext'></a></td></tr></tbody></table></li>";
+			//resultcontent="<div data-role='collapsible'><h4>"+value.name+"</h4><p><a href='tel:"+value.mobile+"'rel='external'>"+value.mobile+"</a></p></div>";
+			//<td><a href=tel:"+value.mobile+" data-role='button' data-icon='phone' data-iconpos='notext'></a></td>/
+			$( "#searchresultslist" ).append(resultcontent);
 		}
 
 	});
+	$( "#searchresultslist" ).listview("refresh").trigger("create");
 	$("#resultsetcount").html("Found <b>"+ resultcounter+"</b>  "+ groupNameFinder(bloodid)+" details");
 	$.mobile.loading( "hide" );
 	if (resultcounter==0){
 		customAlert("Now you can Share it in Social Medias","No Results Found");
 		$(":mobile-pagecontainer").pagecontainer("change","#share-page");
 	}
+}
+
+function prepareForShare(){
+	if ($('li .ui-icon-check').length>1) {
+	var selectedDonors=localStorage.getItem('selecedBloodGroup')+' Donors\n';
+	$.each($('li .ui-icon-check'),function(){		
+		selectedDonors+=$(this).attr('data-name')+"-"+$(this).attr('data-mobile')+"\n";
+			});
+	selectedDonors=selectedDonors.replace('undefined-undefined','-Inaindhakaiggal');
+	
+	}
+	else customAlert("Please select Donors before sharing","Nothing to Share");
+}
+
+function selectAllDonors(){
+	if($('.mark').hasClass('ui-icon-check'))
+		$('.mark').addClass('ui-icon-none').removeClass('ui-icon-check');
+	else
+		$('.mark').removeClass('ui-icon-none').addClass('ui-icon-check');
+}
+
+function showPreview(){
+
 }
 /**End of Donor Search Methods**/
 
@@ -187,6 +227,7 @@ function listMembers(){
 
 $("#searchbtn").tap(function(){	
 	searchDonor($("#rblood :selected").val());
+	localStorage.setItem('selecedBloodGroup',$("#rblood :selected").text());
 });
 
 $("#info-page").tap(function(){
@@ -200,6 +241,10 @@ $("#sharebtn").tap(shareIt);
 
 $("#syncbtn").tap(sync);
 
+$("#shareSelectedBtn").tap(prepareForShare);
+
+$("#bulkSelectBtn").tap(selectAllDonors);
+
 $(document).on('pagebeforeshow','#memberslist-page',listMembers);
 /**End of Function Calls**/
 
@@ -210,6 +255,13 @@ document.addEventListener('deviceready',function(){
 
 });
 
+$(document).on("click","#searchresultslist a.mark",function(){
+	if($(this).hasClass('ui-icon-none'))
+	//$(this).attr('data-icon','check').button().trigger("refresh");
+		$(this).removeClass('ui-icon-none').addClass('ui-icon-check');
+	else
+		$(this).removeClass('ui-icon-check').addClass('ui-icon-none');	
+});
 
 
 /**Testing**/
