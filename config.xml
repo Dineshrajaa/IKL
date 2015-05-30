@@ -25,7 +25,7 @@
     </platform>
     <!-- <access origin="tel:*" launch-external="yes" />
     <access origin="mailto:*" launch-external="yes" /> -->
-    <preference name="phonegap-version"   value="3.7" />
+    <preference name="phonegap-version"   value="3.7.0" />
     <preference name="DisallowOverscroll" value="true"/>
     <preference name="orientation"        value="portrait" />
     <preference name="target-device"      value="universal" />
