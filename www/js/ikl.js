@@ -268,7 +268,8 @@ $(document).on('pagebeforeshow','#memberslist-page',listMembers);
 
 
 document.addEventListener('deviceready',function(){
-	StatusBar.overlaysWebView(false);
+	//StatusBar.overlaysWebView(false);
+	console.log('Device Ready');
 },false);
 
 });

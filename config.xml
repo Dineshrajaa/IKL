@@ -39,9 +39,9 @@
     <preference name="show-splash-screen-spinner" value="true" />
     <preference name="auto-hide-splash-screen"    value="true" />
     <preference name="android-installLocation"    value="auto" />
-    <preference name="SplashScreen" value="splash.png" />
+    <!-- <preference name="SplashScreen" value="splash.png" />
     <preference name="SplashScreenDelay" value="5000" />
-    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarOverlaysWebView" value="false" /> -->
     
     
     <!--ICON FOR ios-->
@@ -79,7 +79,7 @@
 
     <!--Plugins needed-->
     <gap:plugin name="org.apache.cordova.dialogs" />
-    <gap:plugin name="org.apache.cordova.splashscreen" />
+    <!-- <gap:plugin name="org.apache.cordova.splashscreen" /> -->
     <gap:plugin name="org.apache.cordova.statusbar"  />
     <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
     <gap:plugin name="org.apache.cordova.network-information" />   
