@@ -35,14 +35,15 @@
         </div>
 
                         <!--General Popup-->
-        <section data-role="popup" data-dismissible="false" id="sharPagePopup">
+        <section data-role="popup" data-dismissible="false" id="sharPagePopup" data-overlay-theme="b" data-theme="b" class="ui-corner-all" style="max-width:400px;width:auto;height:auto;">
             <header data-role="header" data-theme="b" data-position="fixed">
                 <h1>Preview</h1>
             </header>
             <article data-role="content">
+                <br/><br/>
                 <p id="shareMessage"></p>
                 <a href="#" data-role="button" id="shareOkBtn" data-rel="back">Share</a>
-                <a href="#" data-rel="back">Back</a>
+                <a href="#" data-rel="back" data-role="button">Back</a>
             </article>
         </section>
         
@@ -229,7 +230,7 @@
                 <div data-role="navbar">
                     <ul>
                         <li><a href="#" data-role="button" data-icon="check" data-iconpos="top" id="bulkSelectBtn">Select all</a></li>
-                        <li><a href="#" data-role="button" data-icon="eye" data-iconpos="top" id="viewBtn" data-rel="popup">Preview</a></li>
+                        <li><a href="#sharPagePopup" data-role="button" data-icon="eye" data-iconpos="top" id="viewBtn" data-rel="popup" data-position-to="window" data-transition="pop">Preview</a></li>
                         <li><a href="#" data-role="button" data-icon="action" data-iconpos="top" id="shareSelectedBtn">Share</a></li>
                         
                     </ul>

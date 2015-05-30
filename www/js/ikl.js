@@ -1,6 +1,7 @@
 $(document).ready(function(){	
 $("[data-role=panel]").panel().enhanceWithin();//Initialize the External panel
-$( "#popup-outside-page" ).enhanceWithin().popup();//Initialize External Popup
+$( "#sharPagePopup" ).enhanceWithin().popup();//Initialize External Popup
+var selectedDonors;
 /**Generic Methods**/
 function groupNameFinder(bg){
 	var groupname;
@@ -159,8 +160,9 @@ function searchDonor(bloodid){
 }
 
 function prepareForShare(){
+	//selectedDonors='';
 	if ($('li .ui-icon-check').length>1) {
-	var selectedDonors=localStorage.getItem('selecedBloodGroup')+' Donors\n';
+	selectedDonors=localStorage.getItem('selecedBloodGroup')+' Donors\n';
 	$.each($('li .ui-icon-check'),function(){		
 		selectedDonors+=$(this).attr('data-name')+"-"+$(this).attr('data-mobile')+"\n";
 			});
@@ -171,14 +173,24 @@ function prepareForShare(){
 }
 
 function selectAllDonors(){
-	if($('.mark').hasClass('ui-icon-check'))
+	if($('.mark').hasClass('ui-icon-check')){
 		$('.mark').addClass('ui-icon-none').removeClass('ui-icon-check');
-	else
+		//$("#bulkSelectBtn").text("Unselect All").removeClass('ui-icon-check').addClass('ui-icon-delete');
+	}
+	else{
 		$('.mark').removeClass('ui-icon-none').addClass('ui-icon-check');
+		//$("#bulkSelectBtn").text("Select All").removeClass('ui-icon-delete').addClass('ui-icon-check');
+	}
 }
 
 function showPreview(){
+	prepareForShare();
+	$("#shareMessage").text(selectedDonors);
+}
 
+function shareDonorsList(){
+	prepareForShare();
+	window.plugins.socialsharing.share(selectedDonors);
 }
 /**End of Donor Search Methods**/
 
@@ -244,6 +256,12 @@ $("#syncbtn").tap(sync);
 $("#shareSelectedBtn").tap(prepareForShare);
 
 $("#bulkSelectBtn").tap(selectAllDonors);
+
+$("#viewBtn").tap(showPreview);
+
+$("#shareOkBtn,#shareSelectedBtn").tap(shareDonorsList);
+
+
 
 $(document).on('pagebeforeshow','#memberslist-page',listMembers);
 /**End of Function Calls**/
