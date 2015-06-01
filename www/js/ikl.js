@@ -161,12 +161,13 @@ function searchDonor(bloodid){
 
 function prepareForShare(){
 	//selectedDonors='';
-	if ($('li .ui-icon-check').length>1) {
+	
+	if ($('#searchresultslist li .ui-icon-check').length>0) {
 	selectedDonors=localStorage.getItem('selecedBloodGroup')+' Donors\n';
-	$.each($('li .ui-icon-check'),function(){		
+	$.each($('#searchresultslist li .ui-icon-check'),function(){		
 		selectedDonors+=$(this).attr('data-name')+"-"+$(this).attr('data-mobile')+"\n";
 			});
-	selectedDonors=selectedDonors.replace('undefined-undefined','-Inaindhakaiggal');
+	selectedDonors+="-Inaindhakaiggal";
 	
 	}
 	else customAlert("Please select Donors before sharing","Nothing to Share");
