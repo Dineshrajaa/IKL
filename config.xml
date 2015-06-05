@@ -78,8 +78,7 @@
      <gap:splash src="res/screen/ios/Default-Portrait@2x.png" gap:platform="ios" width="1536" height="2048" /> -->
 
     <!--Plugins needed-->
-    <gap:plugin name="org.apache.cordova.dialogs" />
-    <!-- <gap:plugin name="org.apache.cordova.splashscreen" /> -->
+    <gap:plugin name="org.apache.cordova.dialogs" />    
     <gap:plugin name="org.apache.cordova.statusbar"  />
     <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
     <gap:plugin name="org.apache.cordova.network-information" />   
