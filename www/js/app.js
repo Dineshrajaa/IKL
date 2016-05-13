@@ -43,7 +43,7 @@ angular.module('ikl', ['ionic', 'ikl.controllers'])
     url: '/searchblood',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search-blood.html'
+        templateUrl: 'search/search-blood.html'
       }
     }
   })
@@ -52,7 +52,7 @@ angular.module('ikl', ['ionic', 'ikl.controllers'])
       url: '/askfriends',
       views: {
         'menuContent': {
-          templateUrl: 'templates/ask-friends.html'
+          templateUrl: 'ask/ask-friends.html'
         }
       }
     })
@@ -60,8 +60,7 @@ angular.module('ikl', ['ionic', 'ikl.controllers'])
       url: '/memberslist',
       views: {
         'menuContent': {
-          templateUrl: 'templates/members-list.html',
-          controller: 'PlaylistsCtrl'
+          templateUrl: 'memberslist/members-list.html'
         }
       }
     }).state('land.home',{
