@@ -1,4 +1,4 @@
-angular.module('ikl.controllers', [])
+var app=angular.module('ikl.controllers', ['ikl.services'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -54,3 +54,4 @@ angular.module('ikl.controllers', [])
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 });
+
