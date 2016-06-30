@@ -1,1 +1,24 @@
-/* Empty. Add your own CSS if you like */
+/*Logo design in landing page*/
+
+.landLogo {
+    content: url("../img/ikl.png");
+    margin-left: 15%;
+    margin-top: 25%;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.box {
+    width: 100%;
+    height: 100%;
+}
