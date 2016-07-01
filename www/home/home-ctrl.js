@@ -1,8 +1,9 @@
-app.controller('homeCtrl', function($scope, $state, $ionicSlideBoxDelegate) {
+app.controller('homeCtrl', function($scope, $state,tipService) {
+    $scope.bloodTips=tipService.listTips();
     $scope.changeTo = function(pageTo) {
         $state.go(pageTo);
     };
-    $scope.options = {
+   /* $scope.options = {
         loop: false,
         effect: 'fade',
         speed: 500,
@@ -22,5 +23,5 @@ app.controller('homeCtrl', function($scope, $state, $ionicSlideBoxDelegate) {
         $scope.activeIndex = data.activeIndex;
         $scope.previousIndex = data.previousIndex;
         console.log(data.activeIndex);
-    });
+    });*/
 })
