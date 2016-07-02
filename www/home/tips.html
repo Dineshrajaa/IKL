@@ -1,6 +1,6 @@
 <ion-view view-title="Blood donation tips">
     <ion-nav-title>Blood donation tips</ion-nav-title>
-    <ion-content scroll="false">
+    <ion-content>
         <!--  <ion-slides options="options" slider="data.slider">
             <ion-slide-page ng-repeat="tip in bloodTips">
                 <div class="box blue"><center><b>{{tip.q}}</b><br/>
@@ -11,7 +11,7 @@
             
         </ion-slides> -->
         <div class="list card">
-            <a href="" class="item item-icon-left" ng-repeat="tip in bloodTips">
+            <a href="" class="item item-text-wrap" ng-repeat="tip in bloodTips">
                 <b>{{tip.q}}</b>
                 <br/>
                 <p>{{tip.a}}</p>
